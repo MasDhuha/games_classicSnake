@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Classic Snake Game</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var z = undefined;
+        var env = undefined;
+        var ctx = undefined;
+        $(document).ready(function() {
+            var canvas = $('#canvas')[0];
+            var context = canvas.getContext("2d");
+
+            var environment = function(canvas, context) {
+                this.canvas = canvas;
+                this.ctx = context;
+                this.w = $('#canvas').width();
+                this.h = $('#canvas').height();
+
+                this.init = function() {
+                    this.ctx.fillStyle = "white";
+                    this.ctx.fillRect(0, 0, this.w, this.h);
+                    this.ctx.strokeStyle = "black";
+                    this.ctx.strokeRect(0, 0, this.w, this.h);
+                }
+
+                this.clear = function() {
+                    this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    this.ctx.fillStyle = "white";
+                    this.ctx.fillRect(0, 0, this.w, this.h);
+                    this.ctx.strokeStyle = "black";
+                    this.ctx.strokeRect(0, 0, this.w, this.h);
+                }
+            }
+
+            var snake = function(environment) {
+                this.env = environment;
+                this.defaultSize = 10;
+                this.initialSize = 5;
+                this.body_array = [];
+                this.direction = 'd';
+
+                for (var i = 0; i < this.initialSize; i++) {
+                    this.body_array.push({
+                        x: i * this.defaultSize,
+                        y: 0 * this.defaultSize,
+                    });
+                }
+
+                this.draw = function() {
+                    var that = this;
+
+                    that.env.clear();
+
+                    this.body_array.forEach(function(item) {
+                        ctx.fillStyle = 'black';
+                        ctx.fillRect(item.x, item.y, that.defaultSize, that.defaultSize);
+                        ctx.strokeStyle = 'white';
+                        ctx.strokeRect(item.x, item.y, that.defaultSize, that.defaultSize);
+                    });
+                }
+
+                this.move = function() {
+                    var that = this;
+
+                    var lastItem = that.body_array[that.body_array.length - 1];
+
+                    this.body_array.splice(0, 1);
+
+                    if (that.direction == 'd') {
+                        this.body_array.push({
+                            x: lastItem.x,
+                            y: lastItem.y + 10
+                        });
+                    }
+
+                    if (that.direction == 'l') {
+                        this.body_array.push({
+                            x: lastItem.x -10,
+                            y: lastItem.y
+                        });
+                    }
+
+                    if (that.direction == 'r') {
+                        this.body_array.push({
+                            x: lastItem.x+10,
+                            y: lastItem.y
+                        });
+                    }
+
+                    if (that.direction == 'u') {
+                        this.body_array.push({
+                            x: lastItem.x,
+                            y: lastItem.y-10
+                        });
+                    }
+                }
+
+                var that = this;
+                setInterval(function() {
+                    that.draw();
+                    that.move();
+                }, 50);
+            }
+
+            ctx = context;
+            env = new environment(canvas, ctx);
+            env.init();
+
+            z = new snake(env);
+
+            document.onkeypress = checkDirections;
+
+            function checkDirections(e) {
+                console.log(e.keyCode);
+                if (e.keyCode == '97') {
+                    z.direction = 'l'; //left
+                }
+                if (e.keyCode == '119') {
+                    z.direction = 'u'; //up
+                }
+                if (e.keyCode == '100') {
+                    z.direction = 'r'; //right
+                }
+                if (e.keyCode == '115') {
+                    z.direction = 'd'; //down
+                }
+            }
+
+        });
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas" width="450" height="450"></canvas>
+</body>
+
+</html>
