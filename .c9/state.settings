@@ -32,10 +32,6 @@
                         "tab0"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1489179122194
-                        },
                         "filter": true,
                         "title": "sudo - \"root@Isa: ~/workspaces/games_classicSnake\" ",
                         "tooltip": "sudo - \"root@Isa: ~/workspaces/games_classicSnake\" ",
@@ -43,8 +39,14 @@
                             "id": "devel_621",
                             "cwd": "",
                             "width": 1088,
-                            "height": 136
-                        }
+                            "height": 136,
+                            "scrollTop": 1796
+                        },
+                        "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+                        "meta": {
+                            "timestamp": 1489179122194
+                        },
+                        "changed": false
                     },
                     "editorType": "terminal",
                     "active": false
@@ -110,14 +112,14 @@
             "@ace": 1,
             "@acestatus": 1,
             "@divider": 5,
-            "@document": 7,
+            "@document": 8,
             "@form": 5,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
             "@session": 6,
-            "@tab": 7,
-            "@undoManager": 7
+            "@tab": 8,
+            "@undoManager": 8
         }
     },
     "findinfiles": {
@@ -171,11 +173,12 @@
         "@showfs": true,
         "expanded": {
             "json()": [
-                "/",
-                "/New Folder",
-                "/public"
+                "/"
             ]
         }
+    },
+    "recentfiles": {
+        "json()": []
     },
     "search-history": {
         "search": {
@@ -191,9 +194,9 @@
             "meta": {
                 "accessList": [
                     "tab5",
+                    "tab2",
                     "tab3",
-                    "tab6",
-                    "tab2"
+                    "tab6"
                 ]
             },
             "name": "pane0",
@@ -206,14 +209,39 @@
                         "tab2"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1489409804104
-                        },
                         "filter": true,
                         "title": "index.js",
                         "tooltip": "/index.js",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 0,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 6,
+                                    "column": 0
+                                },
+                                "end": {
+                                    "row": 6,
+                                    "column": 0
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 47,
+                                "mode": "ace/mode/javascript"
+                            }
+                        },
+                        "hash": "9ed32e0462a71bf900737f39b5fd1ad0d6e8cd3a",
+                        "meta": {
+                            "timestamp": 1489409804159
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false
@@ -226,14 +254,36 @@
                         "tab3"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1489414306373
-                        },
                         "filter": true,
                         "title": "index.html",
                         "tooltip": "/index.html",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 360,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 28,
+                                    "column": 32
+                                },
+                                "end": {
+                                    "row": 28,
+                                    "column": 32
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": 0
+                        },
+                        "hash": "e47ac82d75ba871cdb9d796e9a8d6ec733a2b0f9",
+                        "meta": {
+                            "timestamp": 1489415033482
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false
@@ -248,7 +298,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1489414054730
+                            "timestamp": 1489415948053
                         },
                         "filter": true,
                         "title": "snake.js",
@@ -266,14 +316,40 @@
                         "tab6"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1489412658064
-                        },
                         "filter": true,
                         "title": "environment.js",
                         "tooltip": "/public/environment.js",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 180,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 23,
+                                    "column": 38
+                                },
+                                "end": {
+                                    "row": 23,
+                                    "column": 38
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 22,
+                                "state": "start",
+                                "mode": "ace/mode/javascript"
+                            }
+                        },
+                        "hash": "dc8acedfcca4b06ece314ca323f308842f1fc6b5",
+                        "meta": {
+                            "timestamp": 1489415360318
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false
@@ -286,7 +362,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/index.html"
+            "/Untitled"
         ]
     }
 }

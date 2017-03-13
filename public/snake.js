@@ -4,7 +4,7 @@
      this.ctx = ctx;
      this.env = environment;
      this.defaultSize = 10;
-     this.initialSize = 5;
+     this.initialSize = 15;
      this.body_array = [];
      this.locked = false;
      this.direction = 'r';
@@ -28,6 +28,9 @@
                  y: 0 * this.defaultSize,
              });
          }
+
+         that.env.score = 0;
+         that.env.updateScore();
 
          that.intervalEngine = setInterval(function() {
              that.hasEaten();
@@ -140,6 +143,8 @@
                  x: item.x,
                  y: item.y
              });
+             that.env.score += 1;
+             that.env.updateScore();
          }
      }
 
@@ -155,6 +160,8 @@
 
          that.ctx.fillStyle = 'black';
          that.ctx.fillRect(that.currentFood.x, that.currentFood.y, that.defaultSize, that.defaultSize);
+         that.ctx.strokeStyle = 'white';
+         that.ctx.strokeRect(that.currentFood.x, that.currentFood.y, that.defaultSize, that.defaultSize);
      }
  }
  
