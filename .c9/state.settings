@@ -1,7 +1,18 @@
 {
+    "ace": {
+        "search": {
+            "@backwards": "false",
+            "@highlightmatches": "true",
+            "@matchcase": "false",
+            "@preservecase": "false",
+            "@regex": "false",
+            "@wholeword": "false",
+            "@wraparound": "true"
+        }
+    },
     "console": {
         "@expanded": true,
-        "@height": 140,
+        "@height": 162,
         "@maximized": "false",
         "json()": {
             "meta": {
@@ -31,8 +42,8 @@
                         "terminal": {
                             "id": "devel_621",
                             "cwd": "",
-                            "width": 1162,
-                            "height": 114
+                            "width": 1088,
+                            "height": 136
                         }
                     },
                     "editorType": "terminal",
@@ -71,8 +82,8 @@
                         "terminal": {
                             "id": "devel_177",
                             "cwd": "",
-                            "width": 1162,
-                            "height": 114
+                            "width": 1088,
+                            "height": 136
                         }
                     },
                     "editorType": "terminal",
@@ -99,14 +110,14 @@
             "@ace": 1,
             "@acestatus": 1,
             "@divider": 5,
-            "@document": 5,
+            "@document": 7,
             "@form": 5,
             "@menu": 5,
             "@menuitem": 13,
             "@pane": 2,
-            "@session": 4,
-            "@tab": 5,
-            "@undoManager": 5
+            "@session": 6,
+            "@tab": 7,
+            "@undoManager": 7
         }
     },
     "findinfiles": {
@@ -125,7 +136,7 @@
     "panecycle": {
         "json()": [
             "tab4",
-            "tab3"
+            "tab5"
         ]
     },
     "panels": {
@@ -160,7 +171,17 @@
         "@showfs": true,
         "expanded": {
             "json()": [
-                "/"
+                "/",
+                "/New Folder",
+                "/public"
+            ]
+        }
+    },
+    "search-history": {
+        "search": {
+            "json()": [
+                "clear",
+                "createfood"
             ]
         }
     },
@@ -169,7 +190,9 @@
             "focus": "tab4",
             "meta": {
                 "accessList": [
+                    "tab5",
                     "tab3",
+                    "tab6",
                     "tab2"
                 ]
             },
@@ -183,36 +206,14 @@
                         "tab2"
                     ],
                     "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1489409804104
+                        },
                         "filter": true,
                         "title": "index.js",
                         "tooltip": "/index.js",
-                        "ace": {
-                            "folds": [],
-                            "scrolltop": 0,
-                            "scrollleft": 0,
-                            "selection": {
-                                "start": {
-                                    "row": 11,
-                                    "column": 3
-                                },
-                                "end": {
-                                    "row": 11,
-                                    "column": 3
-                                },
-                                "isBackwards": false
-                            },
-                            "options": {
-                                "guessTabSize": true,
-                                "useWrapMode": false,
-                                "wrapToView": true
-                            },
-                            "firstLineState": 0
-                        },
-                        "hash": "29aba8c7733d9a991b717bb4304aceac8397b0ee",
-                        "meta": {
-                            "timestamp": 1489179416704
-                        },
-                        "changed": false
+                        "ace": {}
                     },
                     "editorType": "ace",
                     "active": false
@@ -227,7 +228,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1489374803705
+                            "timestamp": 1489414306373
                         },
                         "filter": true,
                         "title": "index.html",
@@ -235,7 +236,47 @@
                         "ace": {}
                     },
                     "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab5",
+                    "path": "/public/snake.js",
+                    "className": [
+                        "tab5"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1489414054730
+                        },
+                        "filter": true,
+                        "title": "snake.js",
+                        "tooltip": "/public/snake.js",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
                     "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab6",
+                    "path": "/public/environment.js",
+                    "className": [
+                        "tab6"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1489412658064
+                        },
+                        "filter": true,
+                        "title": "environment.js",
+                        "tooltip": "/public/environment.js",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -245,7 +286,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/package.json"
+            "/index.html"
         ]
     }
 }

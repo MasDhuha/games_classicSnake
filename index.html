@@ -4,169 +4,21 @@
 <head>
     <title>Classic Snake Game</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/snake.js"></script>
+    <script type="text/javascript" src="/environment.js"></script>
     <script type="text/javascript">
-        var z = undefined;
+        var s = undefined;
         var env = undefined;
         var ctx = undefined;
         $(document).ready(function() {
             var canvas = $('#canvas')[0];
-            var context = canvas.getContext("2d");
+            ctx = canvas.getContext("2d");
 
-            var environment = function(canvas, context) {
-                this.canvas = canvas;
-                this.ctx = context;
-                this.w = $('#canvas').width();
-                this.h = $('#canvas').height();
-
-                this.init = function() {
-                    this.ctx.fillStyle = "white";
-                    this.ctx.fillRect(0, 0, this.w, this.h);
-                    this.ctx.strokeStyle = "black";
-                    this.ctx.strokeRect(0, 0, this.w, this.h);
-                }
-
-                this.clear = function() {
-                    this.ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    this.ctx.fillStyle = "white";
-                    this.ctx.fillRect(0, 0, this.w, this.h);
-                    this.ctx.strokeStyle = "black";
-                    this.ctx.strokeRect(0, 0, this.w, this.h);
-                }
-            }
-
-            var snake = function(environment) {
-                var that = this;
-
-                this.env = environment;
-                this.defaultSize = 10;
-                this.initialSize = 10;
-                this.body_array = [];
-                this.locked = false;
-                this.direction = 'r';
-                this.intervalEngine = undefined;
-
-                this.start = function() {
-                    that.body_array = [];
-                    that.direction = 'r';
-                    that.locked = false;
-
-                    if (that.intervalEngine != undefined) {
-                        clearInterval(that.intervalEngine);
-                    }
-
-                    for (var i = 0; i < this.initialSize; i++) {
-                        this.body_array.push({
-                            x: i * this.defaultSize,
-                            y: 0 * this.defaultSize,
-                        });
-                    }
-
-                    that.intervalEngine = setInterval(function() {
-                        that.draw();
-                        that.move();
-                        that.checkColision();
-                    }, 30);
-
-                    document.onkeydown = this.checkDirections;
-                }
-
-                this.draw = function() {
-                    var that = this;
-
-                    that.env.clear();
-
-                    this.body_array.forEach(function(item) {
-                        ctx.fillStyle = 'black';
-                        ctx.fillRect(item.x, item.y, that.defaultSize, that.defaultSize);
-                        ctx.strokeStyle = 'white';
-                        ctx.strokeRect(item.x, item.y, that.defaultSize, that.defaultSize);
-                    });
-                }
-
-                this.move = function() {
-                    var that = this;
-
-                    var lastItem = that.body_array[that.body_array.length - 1];
-
-                    this.body_array.splice(0, 1);
-
-                    if (that.direction == 'd') {
-                        this.body_array.push({
-                            x: lastItem.x,
-                            y: lastItem.y + 10
-                        });
-                    }
-
-                    if (that.direction == 'l') {
-                        this.body_array.push({
-                            x: lastItem.x - 10,
-                            y: lastItem.y
-                        });
-                    }
-
-                    if (that.direction == 'r') {
-                        this.body_array.push({
-                            x: lastItem.x + 10,
-                            y: lastItem.y
-                        });
-                    }
-
-                    if (that.direction == 'u') {
-                        this.body_array.push({
-                            x: lastItem.x,
-                            y: lastItem.y - 10
-                        });
-                    }
-
-                    that.locked = false;
-                }
-
-                this.checkDirections = function(e) {
-                    if (!that.locked) {
-                        if (e.key == 'ArrowLeft' && that.direction != 'r') {
-                            z.direction = 'l'; //left
-                        }
-                        if (e.key == 'ArrowUp' && that.direction != 'd') {
-                            z.direction = 'u'; //up
-                        }
-                        if (e.key == 'ArrowRight' && that.direction != 'l') {
-                            z.direction = 'r'; //right
-                        }
-                        if (e.key == 'ArrowDown' && that.direction != 'u') {
-                            z.direction = 'd'; //down
-                        }
-                    }
-
-                    that.locked = true;
-                }
-
-                this.checkColision = function() {
-                    var item = that.body_array[that.body_array.length - 1];
-                    var hasCollided = false;
-                    for (var i = 0; i < that.body_array.length - 2; i++) {
-                        if (that.body_array[i].x == item.x && that.body_array[i].y == item.y) {
-                            hasCollided = true;
-                        }
-                    }
-
-                    if (hasCollided) {
-                        that.start();
-                        return;
-                    }
-
-                    if (item.x < 0 || item.x > 440 || item.y < 0 || item.y > 440) {
-                        that.start();
-                    }
-
-                }
-            }
-
-            ctx = context;
             env = new environment(canvas, ctx);
             env.init();
 
-            z = new snake(env);
-            z.start();
+            s = new snake(env, ctx);
+            s.start();
 
         });
     </script>
