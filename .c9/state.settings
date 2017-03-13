@@ -1,7 +1,7 @@
 {
     "console": {
         "@expanded": true,
-        "@height": 264,
+        "@height": 140,
         "@maximized": "false",
         "json()": {
             "meta": {
@@ -26,13 +26,13 @@
                             "timestamp": 1489179122194
                         },
                         "filter": true,
-                        "title": "bash - \"root@Isa: ~/workspaces/games_classicSnake\" ",
-                        "tooltip": "bash - \"root@Isa: ~/workspaces/games_classicSnake\" ",
+                        "title": "sudo - \"root@Isa: ~/workspaces/games_classicSnake\" ",
+                        "tooltip": "sudo - \"root@Isa: ~/workspaces/games_classicSnake\" ",
                         "terminal": {
                             "id": "devel_621",
                             "cwd": "",
-                            "width": 1042,
-                            "height": 238
+                            "width": 1162,
+                            "height": 114
                         }
                     },
                     "editorType": "terminal",
@@ -71,8 +71,8 @@
                         "terminal": {
                             "id": "devel_177",
                             "cwd": "",
-                            "width": 1042,
-                            "height": 238
+                            "width": 1162,
+                            "height": 114
                         }
                     },
                     "editorType": "terminal",
@@ -130,7 +130,7 @@
     },
     "panels": {
         "@active-left": "tree",
-        "@width-left": 326,
+        "@width-left": 206,
         "commands.panel": {
             "@enabled": "true",
             "@name": "commands.panel"
@@ -227,7 +227,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1489360123313
+                            "timestamp": 1489374803705
                         },
                         "filter": true,
                         "title": "index.html",

@@ -35,17 +35,39 @@
             }
 
             var snake = function(environment) {
+                var that = this;
+
                 this.env = environment;
                 this.defaultSize = 10;
-                this.initialSize = 5;
+                this.initialSize = 10;
                 this.body_array = [];
-                this.direction = 'd';
+                this.locked = false;
+                this.direction = 'r';
+                this.intervalEngine = undefined;
 
-                for (var i = 0; i < this.initialSize; i++) {
-                    this.body_array.push({
-                        x: i * this.defaultSize,
-                        y: 0 * this.defaultSize,
-                    });
+                this.start = function() {
+                    that.body_array = [];
+                    that.direction = 'r';
+                    that.locked = false;
+
+                    if (that.intervalEngine != undefined) {
+                        clearInterval(that.intervalEngine);
+                    }
+
+                    for (var i = 0; i < this.initialSize; i++) {
+                        this.body_array.push({
+                            x: i * this.defaultSize,
+                            y: 0 * this.defaultSize,
+                        });
+                    }
+
+                    that.intervalEngine = setInterval(function() {
+                        that.draw();
+                        that.move();
+                        that.checkColision();
+                    }, 30);
+
+                    document.onkeydown = this.checkDirections;
                 }
 
                 this.draw = function() {
@@ -77,14 +99,14 @@
 
                     if (that.direction == 'l') {
                         this.body_array.push({
-                            x: lastItem.x -10,
+                            x: lastItem.x - 10,
                             y: lastItem.y
                         });
                     }
 
                     if (that.direction == 'r') {
                         this.body_array.push({
-                            x: lastItem.x+10,
+                            x: lastItem.x + 10,
                             y: lastItem.y
                         });
                     }
@@ -92,16 +114,51 @@
                     if (that.direction == 'u') {
                         this.body_array.push({
                             x: lastItem.x,
-                            y: lastItem.y-10
+                            y: lastItem.y - 10
                         });
                     }
+
+                    that.locked = false;
                 }
 
-                var that = this;
-                setInterval(function() {
-                    that.draw();
-                    that.move();
-                }, 50);
+                this.checkDirections = function(e) {
+                    if (!that.locked) {
+                        if (e.key == 'ArrowLeft' && that.direction != 'r') {
+                            z.direction = 'l'; //left
+                        }
+                        if (e.key == 'ArrowUp' && that.direction != 'd') {
+                            z.direction = 'u'; //up
+                        }
+                        if (e.key == 'ArrowRight' && that.direction != 'l') {
+                            z.direction = 'r'; //right
+                        }
+                        if (e.key == 'ArrowDown' && that.direction != 'u') {
+                            z.direction = 'd'; //down
+                        }
+                    }
+
+                    that.locked = true;
+                }
+
+                this.checkColision = function() {
+                    var item = that.body_array[that.body_array.length - 1];
+                    var hasCollided = false;
+                    for (var i = 0; i < that.body_array.length - 2; i++) {
+                        if (that.body_array[i].x == item.x && that.body_array[i].y == item.y) {
+                            hasCollided = true;
+                        }
+                    }
+
+                    if (hasCollided) {
+                        that.start();
+                        return;
+                    }
+
+                    if (item.x < 0 || item.x > 440 || item.y < 0 || item.y > 440) {
+                        that.start();
+                    }
+
+                }
             }
 
             ctx = context;
@@ -109,24 +166,7 @@
             env.init();
 
             z = new snake(env);
-
-            document.onkeypress = checkDirections;
-
-            function checkDirections(e) {
-                console.log(e.keyCode);
-                if (e.keyCode == '97') {
-                    z.direction = 'l'; //left
-                }
-                if (e.keyCode == '119') {
-                    z.direction = 'u'; //up
-                }
-                if (e.keyCode == '100') {
-                    z.direction = 'r'; //right
-                }
-                if (e.keyCode == '115') {
-                    z.direction = 'd'; //down
-                }
-            }
+            z.start();
 
         });
     </script>
